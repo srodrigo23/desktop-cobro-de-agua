@@ -4,8 +4,11 @@ from view.main import View
 from controller.main import Controller
 
 def main():
+
+
     model = Model()
     view = View()
+    # view.start_mainloop()
     controller = Controller(model, view)
     controller.start()
 

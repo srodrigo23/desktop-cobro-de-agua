@@ -6,8 +6,9 @@ class SignInView(Frame):
 
     super().__init__(*args, **kwargs)
 
-    self.grid_columnconfigure(0, weight=0)
-    self.grid_columnconfigure(1, weight=1)
+    # self.grid_columnconfigure(0, weight=0)
+    # self.grid_columnconfigure(1, weight=1)
+    
 
     self.header = Label(self, text="Sign In with existing account")
     self.header.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
