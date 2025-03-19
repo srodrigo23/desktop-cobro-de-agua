@@ -17,6 +17,6 @@ class Root(Tk):
     self.minsize(width=min_width, height=min_height)
     self.resizable(width=False, height=False)
     self.title(title)
-    
+    # self.eval('tk::PlaceWindow . center') # mala posicion
     self.grid_columnconfigure(0, weight=1)
     self.grid_rowconfigure(0, weight=1)

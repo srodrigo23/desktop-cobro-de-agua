@@ -3,14 +3,14 @@ from model.auth import Auth
 from view.main import View
 
 from .home import HomeController
-from .signin import SignInController
+from .login import LoginController
 from .signup import SignUpController
 
 class Controller:
   def __init__(self, model: Model, view: View) -> None:
     self.view = view
     self.model = model
-    # self.signin_controller = SignInController(model, view)
+    self.signin_controller = LoginController(model, view)
     # self.signup_controller = SignUpController(model, view)
     # self.home_controller = HomeController(model, view)
 
