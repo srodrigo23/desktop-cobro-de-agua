@@ -17,7 +17,12 @@ class UserModel(Base):
   username = Column(String(10), unique=True, nullable=False)
   lastlogin = Column(Date, nullable=True)
 
-# class 
+from datetime import datetime
+class CollectionModel(Base):
+  __table__ = "collections"
+  id = Column(Integer, primary_key=True, autoincrement=True)
+  date = Column(Date, nullable=True, default=datetime.now())
+  
 
 
 

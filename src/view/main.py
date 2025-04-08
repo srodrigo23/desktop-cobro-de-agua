@@ -1,5 +1,5 @@
 from .root import Root
-# from .home import HomeView
+from .home import HomeView
 # from .signin import SignInView
 # from .signup import SignUpView
 from .login import Login
@@ -18,7 +18,7 @@ class View:
 
     self._add_frame(Login, "login")
     # self._add_frame(SignInView, "signin")
-    # self._add_frame(HomeView, "home")
+    self._add_frame(HomeView, "home")
 
   def _add_frame(self, Frame, name):
     self.frames[name] = Frame(self.root)

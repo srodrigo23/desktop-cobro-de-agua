@@ -7,7 +7,7 @@ class HomeController:
     self.model = model
     self.view = view
     self.frame = self.view.frames['home']
-    self.bind()
+    # self.bind()
 
   def bind(self):
     self.frame.signout_btn.config(command=self.logout)

@@ -6,16 +6,16 @@ class Root(Tk):
   def __init__(self):
     super().__init__()
 
-    title = 'OTB MIRAFLORES - CONTROL DE RECAUDACIONES'
+    title = 'Sistema de Control OTB Miraflores'
 
-    start_width = 700
-    min_width = 700
-    start_height = 400
-    min_height = 400
+    start_width = 1000
+    min_width = 1000
+    start_height = 600
+    min_height = 600
 
     self.geometry(f"{start_width}x{start_height}")
     self.minsize(width=min_width, height=min_height)
-    self.resizable(width=False, height=False)
+    # self.resizable(width=False, height=False)
     self.title(title)
     # self.eval('tk::PlaceWindow . center') # mala posicion
     self.grid_columnconfigure(0, weight=1)

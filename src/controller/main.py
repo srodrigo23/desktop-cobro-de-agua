@@ -12,7 +12,7 @@ class Controller:
     self.model = model
     self.signin_controller = LoginController(model, view)
     # self.signup_controller = SignUpController(model, view)
-    # self.home_controller = HomeController(model, view)
+    self.home_controller = HomeController(model, view)
 
     # self.model.auth.add_event_listener(
     #   "auth_changed", self.auth_state_listener
@@ -28,8 +28,6 @@ class Controller:
   def start(self) -> None:
     
     if self.model.auth.is_logged_in:
-
-
       self.view.switch("home")
     else:
       self.view.switch("login")

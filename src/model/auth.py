@@ -8,7 +8,7 @@ class Auth(ObservableModel):
 
   def __init__(self):
     super().__init__()
-    self.is_logged_in = False
+    self.is_logged_in = True
     self.current_user: Union[User, None] = None
 
   def login(self, user):
