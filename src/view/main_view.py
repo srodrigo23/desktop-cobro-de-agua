@@ -1,5 +1,5 @@
 from .root import Root
-from .admin.home import HomeView
+from .main.home_view import HomeView
 # from .signin import SignInView
 # from .signup import SignUpView
 from .login.login import Login

@@ -1,6 +1,6 @@
 from model.main import Model
 from model.auth import User
-from view.main import View
+from view.main_view import View
 
 
 class LoginController:
