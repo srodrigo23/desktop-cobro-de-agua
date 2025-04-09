@@ -26,10 +26,8 @@ class Controller:
       self.view.switch("signin")
 
   def start(self) -> None:
-    
     if self.model.auth.is_logged_in:
       self.view.switch("home")
     else:
       self.view.switch("login")
-
     self.view.start_mainloop()

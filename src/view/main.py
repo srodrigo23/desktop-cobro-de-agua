@@ -1,8 +1,8 @@
 from .root import Root
-from .home import HomeView
+from .admin.home import HomeView
 # from .signin import SignInView
 # from .signup import SignUpView
-from .login import Login
+from .login.login import Login
 
 class View:
   def __init__(self):

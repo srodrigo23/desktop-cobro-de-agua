@@ -1,8 +1,13 @@
 from tkinter import Frame, Label, Button
 
 from customtkinter import CTkFrame, CTkButton, CTkLabel, CTkComboBox, StringVar, CTkScrollableFrame
+from customtkinter import CTkImage
 from tkinter import Tk, font, Spinbox, Listbox, Scrollbar
 from tkinter.ttk import LabelFrame
+from PIL import Image
+
+from .user_info_action import UserInfoAction
+
 
 class HomeView(Frame):
   def __init__(self, *args, **kwargs):
@@ -12,38 +17,122 @@ class HomeView(Frame):
     self.grid_rowconfigure(0, weight=1)
     self.grid_columnconfigure(1, weight=1)
 
-    self.menu_frame =  CTkFrame(self,  fg_color='red',)
+    self.menu_frame =  CTkFrame(
+      self, 
+      width=60                       
+        # fg_color='red',
+    )
     self.menu_frame.grid(row=0, column=0, sticky="ns")
     
-    self.menu_frames = [None]*5
+    self.menu_frames = [None]*6
 
     # for i in range(len(self.menu_frames)):
     pos = 0
     self.menu_frame.grid_rowconfigure(pos, weight=1)
-    self.menu_frames[pos] = CTkButton(self.menu_frame,width=100 , fg_color='green', command=lambda:self.callback(pos=pos))
+    
+    self.theme = {
+      'hover_color': ('#13d1fc','#f3f8f9'),
+      'font': ('Arial', 20),
+      'fg_color':'white',
+      'text_color':('black'),
+    }
+
+    self.menu_frames[pos] = CTkButton(
+      self.menu_frame,
+      width=80,
+      command=lambda:self.callback(pos=pos),
+      image=CTkImage(
+        # light_image=Image.open("resources/home.png"),
+        dark_image=Image.open("resources/home.png"),
+        size=(40, 40),
+      ),
+      text='Principal',
+      compound="top",
+      font=self.theme['font'],
+      fg_color=self.theme['fg_color'],
+      text_color=self.theme['text_color'],
+      hover_color=self.theme['hover_color']
+    )
     self.menu_frames[pos].grid(row=pos, column=0, padx=10, pady=10, sticky="nsew")
 
     pos = 1
     self.menu_frame.grid_rowconfigure(pos, weight=1)
-    self.menu_frames[pos] = CTkButton(self.menu_frame,width=100 , fg_color='red', command=lambda:self.callback(pos=pos))
+    self.menu_frames[pos] = CTkButton(
+      self.menu_frame,
+      width=100, 
+      image=CTkImage(
+        # light_image=Image.open("resources/home.png"),
+        dark_image=Image.open("resources/water2.png"),
+        size=(40, 40),
+      ),
+      text='Consumo\nde Agua',
+      compound='top',
+      font=self.theme['font'],
+      fg_color=self.theme['fg_color'],
+      text_color=self.theme['text_color'],
+      hover_color=self.theme['hover_color']
+    )
     self.menu_frames[pos].grid(row=pos, column=0, padx=10, pady=10, sticky="nsew")
 
     pos = 2
     self.menu_frame.grid_rowconfigure(pos, weight=1)
-    self.menu_frames[pos] = CTkButton(self.menu_frame,width=100 , fg_color='yellow', command=lambda:self.callback(pos=pos))
+    self.menu_frames[pos] = CTkButton(
+      self.menu_frame,
+      width=100, 
+      # command=lambda:self.callback(pos=pos)
+      image=CTkImage(
+        light_image=Image.open("resources/paper.png"),
+        # dark_image=Image.open("resources/water2.png"),
+        size=(40, 40),
+      ),
+      text='Lecturación',
+      compound='top',
+      font=self.theme['font'],
+      fg_color=self.theme['fg_color'],
+      text_color=self.theme['text_color'],
+      hover_color=self.theme['hover_color']
+    )
     self.menu_frames[pos].grid(row=pos, column=0, padx=10, pady=10, sticky="nsew")
 
     pos = 3
     self.menu_frame.grid_rowconfigure(pos, weight=1)
-    self.menu_frames[pos] = CTkButton(self.menu_frame,width=100 , fg_color='white', command=lambda:self.callback(pos=pos))
+    self.menu_frames[pos] = CTkButton(
+      self.menu_frame,
+      image=CTkImage(
+        light_image=Image.open("resources/vecinos.png"),
+        # dark_image=Image.open("resources/water2.png"),
+        size=(40, 40),
+      ),
+      text='Vecinos',
+      compound='top',
+      font=self.theme['font'],
+      fg_color=self.theme['fg_color'],
+      text_color=self.theme['text_color'],
+      hover_color=self.theme['hover_color']
+    )
     self.menu_frames[pos].grid(row=pos, column=0, padx=10, pady=10, sticky="nsew")
 
     pos = 4
     self.menu_frame.grid_rowconfigure(pos, weight=1)
-    self.menu_frames[pos] = CTkButton(self.menu_frame,width=100 , fg_color='orange', command=lambda:self.callback(pos=pos))
+    self.menu_frames[pos] = CTkButton(
+      self.menu_frame,
+      image=CTkImage(
+        light_image=Image.open("resources/money.png"),
+        # dark_image=Image.open("resources/water2.png"),
+        size=(40, 40),
+      ),
+      text='Recaudaciones',
+      compound='top',
+      font=self.theme['font'],
+      fg_color=self.theme['fg_color'],
+      text_color=self.theme['text_color'],
+      hover_color=self.theme['hover_color']
+    )
     self.menu_frames[pos].grid(row=pos, column=0, padx=10, pady=10, sticky="nsew")
-    
-    pos=1
+
+    self.user_info_action = UserInfoAction(master=self.menu_frame)
+    self.user_info_action.grid(row=5, column=0, padx=10, pady=10, sticky="nsew")
+    # pos=1
 
       # self.menu_frame.grid_rowconfigure(1, weight=1)
       # self.menu_frames[1] = CTkButton(self.menu_frame,width=100 , fg_color='green', command=lambda:self.callback(pos=1))
